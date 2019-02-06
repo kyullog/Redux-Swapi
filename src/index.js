@@ -7,8 +7,7 @@ import logger from "redux-logger";
 
 import "./index.css";
 import App from "./App";
-import { combineReducers } from "./reducers/index.js";
-import rootReducer from "./reducers";
+import charsReducer from "./reducers/index.js";
 
 // needed dependancies
 // applyMiddleware from redux
@@ -17,7 +16,7 @@ import rootReducer from "./reducers";
 // rootReducer from ./reducers
 
 const store = createStore(
-  rootReducer,
+  charsReducer,
   applyMiddleware(thunk, logger)
   /* applyMiddleware goes here */
 );
