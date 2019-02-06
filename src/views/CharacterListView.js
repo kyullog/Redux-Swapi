@@ -16,21 +16,24 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    return <h1>Testing</h1>;
-    // if (this.props.fetching) {
-    //   return <h2>Loading</h2>;
-    //   // return something here to indicate that you are fetching data
-    // }
-    // return (
-    //   <div className="CharactersList_wrapper">
-    //     <CharacterList characters={this.props.characters} />
-    //   </div>
-    // );
+    // return <h1>Testing</h1>;
+    if (this.props.fetching) {
+      return <h2>Loading</h2>;
+      // return something here to indicate that you are fetching data
+    }
+    return (
+      <div className="CharactersList_wrapper">
+        <CharacterList characters={this.props.characters} />
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => {
-  return { characters: state.characters, fetching: state.loading };
+  return {
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.loading
+  };
 };
 
 // our mapStateToProps needs to have two properties inherited from state
